@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NearBy</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="try_again">Retry</string>
+    <string name="enable_gps">Near by App need GPS to function correctly</string>
+    <string name="enable">Go Setting</string>
+    <string name="realtime">Realtime</string>
+    <string name="singleTime">SingleTime</string>
+    <string name="network_error">Please check internet connection</string>
+    <string name="setting">Go setting</string>
+    <string name="no_data_found">No data found!</string>
+</resources>
