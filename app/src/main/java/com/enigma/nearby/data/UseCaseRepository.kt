@@ -8,8 +8,8 @@ import io.reactivex.Observable
 
 interface UseCaseRepository {
     fun removedCachedPlaces():Completable
-    fun getNearByPlaces(lnglat: String): Completable
-    fun getNearbyPlaces(): Flowable<List<VenueItemEntity>>
+    fun getRemotlyNearByPlaces(lnglat: String): Completable
+    fun getCachedNearbyPlaces(): Flowable<List<VenueItemEntity>>
     fun getVenuePhoto(id: String): Observable<String>
 
 }

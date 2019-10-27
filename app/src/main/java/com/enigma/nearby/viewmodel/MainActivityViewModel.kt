@@ -32,14 +32,14 @@ class MainActivityViewModel(
     val responseTypeMutableLiveData: MutableLiveData<ResponseType> = MutableLiveData()
     fun executeNearByPlace(lnglat: String) {
         disposables.add(
-            useCaseRepository.getNearByPlaces(lnglat).subscribeOn(Schedulers.io())
+            useCaseRepository.getRemotlyNearByPlaces(lnglat).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(NearPlacesObserver())
         )
     }
 
     fun retrieveDataFromCached() {
         disposables.add(
-            useCaseRepository.getNearbyPlaces().subscribeOn(Schedulers.io())
+            useCaseRepository.getCachedNearbyPlaces().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(
                     CachedNearPlacesObserver()
                 )

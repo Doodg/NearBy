@@ -6,6 +6,6 @@ import io.reactivex.Flowable
 
 interface NearByCache {
     fun insertPlaces(placesList: List<VenueItemEntity>): Completable
-    fun getNearbyPlaces(): Flowable<List<VenueItemEntity>>
+    fun getCachedNearbyPlaces(): Flowable<List<VenueItemEntity>>
     fun deletePlaces(): Completable
 }

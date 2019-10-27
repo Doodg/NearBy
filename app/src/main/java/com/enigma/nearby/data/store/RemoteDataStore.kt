@@ -10,10 +10,10 @@ import io.reactivex.Flowable
 import io.reactivex.Observable
 import java.lang.UnsupportedOperationException
 
-class RemoteDataStore(private val remoteDataStore: NearByRemote) :
+class RemoteDataStore(private val nearByRemote: NearByRemote) :
     NearByDataStore {
     override fun getVenuePhoto(id: String): Observable<PhotoResponse> {
-        return remoteDataStore.getVenuePhoto(id)
+        return nearByRemote.getVenuePhoto(id)
     }
 
     override fun deleteCachedPlaces(): Completable {
@@ -25,11 +25,11 @@ class RemoteDataStore(private val remoteDataStore: NearByRemote) :
 
     }
 
-    override fun getNearbyPlaces(): Flowable<List<VenueItemEntity>> {
+    override fun getCachedNearbyPlaces(): Flowable<List<VenueItemEntity>> {
         throw UnsupportedOperationException("Just database request ")
     }
 
-    override fun getNearbyPlaces(lnglat: String): Observable<NearPlacesResponse> {
-        return remoteDataStore.getNearbyPlaces(lnglat)
+    override fun getRemotlyNearbyPlaces(lnglat: String): Observable<NearPlacesResponse> {
+        return nearByRemote.getRemoteNearbyPlaces(lnglat)
     }
 }

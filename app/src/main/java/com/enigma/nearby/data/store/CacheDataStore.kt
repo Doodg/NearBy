@@ -24,11 +24,11 @@ class CacheDataStore(private val nearByCache: NearByCache) : NearByDataStore {
     }
 
 
-    override fun getNearbyPlaces(): Flowable<List<VenueItemEntity>> {
-        return nearByCache.getNearbyPlaces()
+    override fun getCachedNearbyPlaces(): Flowable<List<VenueItemEntity>> {
+        return nearByCache.getCachedNearbyPlaces()
     }
 
-    override fun getNearbyPlaces(lnglat: String): Observable<NearPlacesResponse> {
+    override fun getRemotlyNearbyPlaces(lnglat: String): Observable<NearPlacesResponse> {
         throw UnsupportedOperationException("Just remote request ")
     }
 }

@@ -14,7 +14,7 @@ class NearByCacheImpl(private val nearByDataBase: NearByDataBase) : NearByCache 
         return nearByDataBase.cachedPlacesItem().insertPlaces(placesList)
     }
 
-    override fun getNearbyPlaces(): Flowable<List<VenueItemEntity>> {
+    override fun getCachedNearbyPlaces(): Flowable<List<VenueItemEntity>> {
         return nearByDataBase.cachedPlacesItem().getPlaces()
     }
 }

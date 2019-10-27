@@ -10,8 +10,8 @@ import io.reactivex.Observable
 interface NearByDataStore {
     fun insertPlaces(placesList: List<VenueItemEntity>): Completable
     fun deleteCachedPlaces(): Completable
-    fun getNearbyPlaces(): Flowable<List<VenueItemEntity>>
-    fun getNearbyPlaces(lnglat: String): Observable<NearPlacesResponse>
+    fun getCachedNearbyPlaces(): Flowable<List<VenueItemEntity>>
+    fun getRemotlyNearbyPlaces(lnglat: String): Observable<NearPlacesResponse>
     fun getVenuePhoto(id: String): Observable<PhotoResponse>
 
 }

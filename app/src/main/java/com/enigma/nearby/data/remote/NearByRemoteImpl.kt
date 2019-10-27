@@ -11,7 +11,7 @@ class NearByRemoteImpl(private val service: NearByService) : NearByRemote {
         return service.getVenueImage(id)
     }
 
-    override fun getNearbyPlaces(lnglat: String): Observable<NearPlacesResponse> {
+    override fun getRemoteNearbyPlaces(lnglat: String): Observable<NearPlacesResponse> {
         return service.getNearByPlaces(lnglat)
     }
 }
