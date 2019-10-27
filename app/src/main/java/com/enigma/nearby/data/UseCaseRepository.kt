@@ -10,6 +10,6 @@ interface UseCaseRepository {
     fun removedCachedPlaces():Completable
     fun getNearByPlaces(lnglat: String): Completable
     fun getNearbyPlaces(): Flowable<List<VenueItemEntity>>
-    fun getVenuePhoto(id: String): Observable<PhotoResponse>
+    fun getVenuePhoto(id: String): Observable<String>
 
 }

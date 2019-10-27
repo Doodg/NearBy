@@ -3,6 +3,7 @@ package com.enigma.nearby.enums
 enum class SnackActionType {
     ASERQUESTFAIL,
     ASPERMISSIONNEED,
-    NETWORKSETTING
+    NETWORKSETTING,
+    MANY_REQUESTS
 
 }

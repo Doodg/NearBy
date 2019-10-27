@@ -31,6 +31,8 @@ data class Venue(
     @field:SerializedName("photos")
 	val photos: Photos? = null,
 
+    var formattedPhotoUrl:String?= null,
+
     @field:SerializedName("beenHere")
 	val beenHere: BeenHere? = null
 )

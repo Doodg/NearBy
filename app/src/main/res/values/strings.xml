@@ -9,4 +9,6 @@
     <string name="network_error">Please check internet connection</string>
     <string name="setting">Go setting</string>
     <string name="no_data_found">No data found!</string>
+    <string name="many_requests">Many reqests sent, you need to wait.</string>
+    <string name="ok">Ok</string>
 </resources>

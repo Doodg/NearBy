@@ -14,6 +14,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subscribers.DisposableSubscriber
+import retrofit2.HttpException
 import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -61,7 +62,6 @@ class MainActivityViewModel(
 
     private inner class CachedNearPlacesObserver : DisposableSubscriber<List<VenueItemEntity>>() {
         override fun onNext(t: List<VenueItemEntity>?) {
-            Thread.sleep(2000)//to Simulate
             placesMutableLiveData.postValue(t)
         }
 
@@ -80,9 +80,13 @@ class MainActivityViewModel(
     private fun errorMapper(e: Throwable) {
         if (e is UnknownHostException || e is SocketException || e is SocketTimeoutException)
             responseTypeMutableLiveData.postValue(ResponseType.NETWORK)
-        else
+        else if ((e as HttpException).code() == 429) {
+            responseTypeMutableLiveData.postValue(ResponseType.MANY_REQUESTS)
+
+        } else {
             responseTypeMutableLiveData.postValue(ResponseType.UNKNOWN)
 
+        }
     }
 
     fun getLocationObserver() = locationLiveData

@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         networkStatusLiveData.observe(this, Observer {
-            if (it!=null && !it.isConnected) showSnackBar(
+            if (it != null && !it.isConnected) showSnackBar(
                 getString(R.string.network_error),
                 SnackActionType.NETWORKSETTING
             )
@@ -120,6 +120,9 @@ class MainActivity : AppCompatActivity() {
                         SnackActionType.NETWORKSETTING
                     )
                 }
+                ResponseType.MANY_REQUESTS -> {
+                    showSnackBar(getString(R.string.many_requests), SnackActionType.ASERQUESTFAIL)
+                }
                 ResponseType.UNKNOWN -> {
                     showSnackBar(
                         getString(R.string.something_went_wrong),
@@ -178,6 +181,10 @@ class MainActivity : AppCompatActivity() {
             SnackActionType.NETWORKSETTING -> {
                 snackBar.setAction(R.string.setting, View.OnClickListener {
                     startActivity(Intent(Settings.ACTION_NETWORK_OPERATOR_SETTINGS))
+                })
+            }
+            SnackActionType.MANY_REQUESTS -> {
+                snackBar.setAction(R.string.ok, View.OnClickListener {
                 })
             }
         }

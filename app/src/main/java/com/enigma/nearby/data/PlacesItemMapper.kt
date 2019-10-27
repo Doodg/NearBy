@@ -2,16 +2,21 @@ package com.enigma.nearby.data
 
 import com.enigma.nearby.data.cache.VenueItemEntity
 import com.enigma.nearby.model.venue.ItemsItem
+import com.enigma.nearby.model.venue.Venue
 
 class PlacesItemMapper() {
-    fun mapToDataBaseObject(itemPlacesRemote: List<ItemsItem>) =
+    fun mapToDataBaseObject(itemPlacesRemote: Venue) =
         ArrayList<VenueItemEntity>().apply {
-            addAll(itemPlacesRemote.map { item ->
+            itemPlacesRemote.formattedPhotoUrl?.let {
                 VenueItemEntity(
-                    placeName = item.venue?.name!!,
-                    placeAddress = item.venue.location?.formattedAddressCorrectly()!!,
-                    placeIcon = item.venue.categories?.get(0)?.icon?.prefix.plus("70*70" + (item.venue.categories?.get(0)?.icon?.suffix))
+                    placeName = itemPlacesRemote.name!!,
+                    placeAddress = itemPlacesRemote.location?.formattedAddressCorrectly()!!,
+                    placeIcon = it
                 )
-            })
+            }?.let {
+                add(
+                    it
+                )
+            }
         }
 }

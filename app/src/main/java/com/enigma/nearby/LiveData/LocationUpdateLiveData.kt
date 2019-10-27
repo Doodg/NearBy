@@ -45,10 +45,6 @@ class LocationUpdateLiveData(private val sharedPreferences: SharedPreferences) :
                 }
             }
         }
-        Log.e("Changes", "${location?.latitude}    ${location?.longitude}")
-        Log.e("Primiry", "${deviceCurrentLocation?.latitude}    ${deviceCurrentLocation?.longitude}"
-        )
-
     }
 
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
