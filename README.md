@@ -9,7 +9,7 @@ https://restcountries-v1.p.rapidapi.com/all
 ```
 also, you can save the country as a favorite in local Database with some info about in when clicking on the country kindly check the GIF below to check out how the app work 
 
-![alt text](https://i.imgur.com/qIvEfMhl.gif)
+![](https://i.imgur.com/umS73dZ.gif)
 
 ## Stack
 
