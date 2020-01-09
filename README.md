@@ -1,28 +1,27 @@
-# CountryScanner
+# Near By Venue
 
-CountryScanner is an example android app created for learning proposes, for applying <b>clean architecture</b> using the latest trading technology stack in android.
 
-## App Idea
-the application is to retrieve the Countries in the whole world using the API below:-
-```bash
-https://restcountries-v1.p.rapidapi.com/all
-```
-also, you can save the country as a favorite in local Database with some info about in when clicking on the country kindly check the GIF below to check out how the app work 
+NearBy is an Android app that uses Foursquare Endpoints to fetch the near places to the user location and updated the places when the user moves more than 500M, also the user can stop the realTime update to be a single update.
 
-![](https://i.imgur.com/umS73dZ.gif)
+## Stack & Archticate 
+App build by : 
 
-## Stack
+ - AndroidX
 
-- Clean Architecture
-- MVVM 
+ - MVVM
 - KOIN
-- Retrofit
-- Android architecture component
-- Rx
-- Glide
+ - Retrofit
+ - RxJava
+ - Room
+ - LiveData
 
 
+## Class Diagram 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+![alt text](https://i.imgur.com/iCVslsi.png)
 
+## Model Diagram 
+
+![alt text](https://i.imgur.com/WI2SEbW.png)
+
+#### Feel free to contribute.
